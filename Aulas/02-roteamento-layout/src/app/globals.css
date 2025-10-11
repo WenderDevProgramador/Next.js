@@ -60,5 +60,11 @@ a {
 header {
   border-bottom: 1px solid #777;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
 }
+
+
 

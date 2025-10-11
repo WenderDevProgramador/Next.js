@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,16 @@ export default function RootLayout({
         <header>
           <div className="site-logo">Universo em Foco</div>
           <p>Explore o incrível mundo da astronomia e descubra segredos do cosmos através de artigos, imagens e muito mais!</p>
+
+          <nav>
+            <Link href="/">Ínicio</Link>
+            {'|'}
+            <Link href="/blog">Blog</Link>
+            {'|'}
+            <Link href="/loja">Loja</Link>
+          </nav>
         </header>
+
         {children}
       </body>
     </html>
