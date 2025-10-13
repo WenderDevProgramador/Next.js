@@ -1,7 +1,36 @@
+'use client'
+
+import { useParams } from "next/navigation"
+import spaceships from '@/data/spaceships.json'
+import Link from "next/link";
+
 export default function Page() {
+    const params = useParams()
+
+
+    if (typeof params.category !== 'string') return null;
+
+    const category = params.category.replace('_',' ')
+
+    const categorySpaceship =  spaceships.filter(ship => ship.category === category)
+
+
     return (
         <main>
-            <h1>Nome da Categoria</h1>
+            <h1>{category}</h1>
+
+            <ul>
+                {categorySpaceship.map( ship => (
+                    <li key={ship.id}>
+
+                        <Link href={`/spaceships/${ship.id}`}
+                        className="btn" >
+                            {ship.name}
+                        </Link>
+
+                    </li>
+                ))}
+            </ul>
         </main>
     )
 }

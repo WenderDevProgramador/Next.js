@@ -18,7 +18,7 @@ export default function Page() {
             <h1>{ship.name}</h1>
 
             <p>
-                <Image src={ship.imageUrl} alt={ship.name} width={768} height={432} />
+                <Image src={ship.imageUrl} alt={ship.name} width={300} height={250} />
             </p>
 
             <p>
