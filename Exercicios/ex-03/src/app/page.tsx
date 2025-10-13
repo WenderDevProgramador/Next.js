@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
+    
     <main>
       <h1>Conheça as Naves do Universo de Star Wars</h1>
 
@@ -15,10 +15,8 @@ export default function Home() {
       </p>
     </main>
 
-    <footer>
-      <p>Projeto desenvolvido no modulo next da oneBitCode</p>
-    </footer>
+  
 
-    </>
+   
   );
 }
