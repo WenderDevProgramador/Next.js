@@ -1,0 +1,13 @@
+.heading_module {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.637);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.teste {
+    color: red;
+    font-size: 50px;
+}
