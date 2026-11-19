@@ -1,4 +1,5 @@
 
+import ComponentTaillwind from './components/ComponentTaillwind';
 import styles from './page.module.css'
 
 export default function Home() {
@@ -20,6 +21,14 @@ export default function Home() {
       <h3 className={styles.teste}>
         Testando CSS Modules
       </h3>
+
+      <div className={styles.container}>
+        <p>Testando CSS Modules</p>
+      </div>
+
+      {/* 3- Tailwind */}
+
+      <ComponentTaillwind/>
 
     </main>
 
