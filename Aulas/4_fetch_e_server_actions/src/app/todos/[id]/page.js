@@ -1,8 +1,12 @@
 import {db} from '@/db.js'
+import { notFound } from 'next/navigation';
 
 
 
 const TodoShow = async ({ params }) => {
+    await new Promise((a)  => setTimeout(a, 1000));
+
+
     const {id} = await params;
     const todoId = Number(id)
 
@@ -10,7 +14,9 @@ const TodoShow = async ({ params }) => {
         where: {
             id: todoId
         }
-    })
+    });
+
+    if(!todo) return notFound();
 
 
     return (
