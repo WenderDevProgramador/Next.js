@@ -1,30 +1,6 @@
-import {db} from "@/db";
-
-import { redirect } from 'next/navigation';
+import { addTodo } from "@/actions"
 
 const TodoPage = () => {
-
-    const addTodo = async (formData) => {
-        "use server"
-
-        console.log(formData);
-
-        const titulo = formData.get("title");
-        const descricao = formData.get("description");
-        const status = 'Pendente';
-
-        const todo = await db.todo.create({
-            data: {
-                titulo,
-                descricao,
-                status
-            }
-        });
-
-        console.log(todo);
-
-        redirect("/");
-    }
 
 
     return (

@@ -2,12 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { db } from "@/db.js";
 
+import Button from "@/components/Button";
+import { deleteTodo } from "@/actions";
 
+export const instant = false;
 
 export default async function Home() {
 
   // Resgatando dados do banco
   const todos = await db.todo.findMany();
+
+  
 
   return (
     <main className="container mx-auto p-4">
@@ -29,9 +34,12 @@ export default async function Home() {
               <Link href={`/todos/${todo.id}/edit`} className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">
                 Editar
               </Link>
-              <button href={`/todos/${todo.id}/delete`} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
-                Excluir
-              </button>
+              <form action={deleteTodo}>
+                <input type="hidden" name="id" value={todo.id} />
+                <Button  >
+                  Excluir
+                </Button>
+              </form>
             </div>
           </div>
 
