@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 
 
+
 export async function deleteTodo(formData) {
 
 
@@ -46,4 +47,32 @@ export const findTodoById = async (id) => {
     });
 
     return todo;
+};
+
+
+export const updateTodo = async (formState, formData) => {
+    const id = Number(formData.get("id"));
+    const titulo = formData.get("title");
+    const descricao = formData.get("description");
+
+    if(titulo.length < 5) {
+        return { errors: "O título deve ter pelo menos 5 caracteres." };
+    }
+
+    if(descricao.length < 10) {
+        return { errors: "A descrição deve ter pelo menos 10 caracteres." };
+    }
+
+    await db.todo.update({
+        where: {
+            id: id,
+        },
+        data: {
+            titulo,
+            descricao,
+            
+        },
+    });
+
+    redirect("/");
 };
